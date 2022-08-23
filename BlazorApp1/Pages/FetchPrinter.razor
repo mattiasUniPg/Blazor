@@ -1,0 +1,65 @@
+﻿@page "/fetchprinter"
+@inject HttpClient Http
+
+<PageTitle>Printer page</PageTitle>
+
+<h1>Printer page</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>PV</th>
+                <th>Cod_Cliente</th>
+                <th>Ente_PV</th>
+                <th>IP_PV</th>
+                <th>Model_printer</th>
+                <th>Serial_Number</th>
+                <th>STATUS</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>@forecast.PV</td>
+                    <td>@forecast.Cod_Cliente</td>
+                    <td>@forecast.Ente_PV.ToString()</td>
+                    <td>@forecast.IP_PV</td>
+                    <td>@forecast.Model_printer</td>
+                    <td>@forecast.Serial_Number</td>
+                    <td>@forecast.STATUS</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private PrinterForecast[]? forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await Http.GetFromJsonAsync<PrinterForecast[]>("sample-data/printer.json");
+    }
+
+    public class PrinterForecast
+    {
+
+        public string PV { get; set; }
+        public string Cod_Cliente { get; set; }
+        public int Ente_PV { get; set; }
+        public string IP_PV { get; set; }
+        public string Model_printer { get; set; }
+        public string Serial_Number { get; set; }
+        public string STATUS { get; set; }
+
+    }
+}

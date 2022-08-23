@@ -1,0 +1,22 @@
+{
+  {
+    "PV": "DOMENICO",
+    "Cod_Cliente": "1234",
+    "Ente_PV": 1234,
+    "IP_PV": "192.168.0.1",
+    "Model_printer": "HP LASER MAX",
+    "Serial_Number": "BUONO1234",
+    "STATUS": "ATTIVO"
+
+  },
+  {
+    "PV": "DOMENICAIN",
+    "Cod_Cliente": "12355",
+    "Ente_PV": 1233,
+    "IP_PV": "192.168.0.101",
+    "Model_printer": "HP LASER MAX",
+    "Serial_Number": "BUONII1234",
+    "STATUS": "WARNING"
+  }
+
+}
